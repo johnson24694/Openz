@@ -1,38 +1,49 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useNavigate, Link } from "react-router-dom";
+import { Carousel } from 'react-bootstrap';
 
 const LandingPage= (props) => {
-    
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState(""); 
-    const [instructions, setInstructions] = useState("");
-    const [cookTime, setCookTime] = useState("");
-    const [errors, setErrors] = useState({});
     const navigate = useNavigate()
-
-    const onSubmitHandler = (e) => {
-        e.preventDefault();
-        axios.post('http://localhost:8000/api/houses', {
-            name,
-            description,
-            instructions,
-            cookTime
-        })
-            .then(res=>{
-                console.log(res);
-                navigate('/dashboard')
-            })
-            .catch((err)=> {
-            console.log(err.response.data.err.errors)
-            setErrors(err.response.data.err.errors)
-        });
-    }
     
     return (
-        <form className="mt-5 px-3 py-4" onSubmit={onSubmitHandler}>
+        <div>
             <h2 className="h1 display-1">Openz</h2>
             <h4>All your open houses.  All in one place.</h4>
+            <Carousel>
+                <Carousel.Item interval={1000}>
+                    <img
+                    className="d-block w-100"
+                    src="https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                    alt="First slide"
+                    />
+                    <Carousel.Caption>
+                    <h3>Keep track of the open houses you visit.</h3>
+                    
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item interval={500}>
+                    <img
+                    className="d-block w-100"
+                    src="https://images.pexels.com/photos/226407/pexels-photo-226407.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                    alt="Second slide"
+                    />
+                    <Carousel.Caption>
+                    <h3>Customize your open house selections.</h3>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <img
+                    className="d-block w-100"
+                    src="https://images.pexels.com/photos/1170686/pexels-photo-1170686.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                    alt="Third slide"
+                    />
+                    <Carousel.Caption>
+                    <h3>Plan your weekend!</h3>
+                    </Carousel.Caption>
+                </Carousel.Item>
+            </Carousel>
+
              <div>
                 <h6>New here?</h6>
                 <Link to={`/register`}>Register Now</Link>
@@ -41,31 +52,7 @@ const LandingPage= (props) => {
                 <h6>Welcome Back</h6>
                 <Link to={`/login`}>Log in</Link>
              </div>
-    
-            {/* <p>
-                <label>Name</label><br/>
-                <input type="text" name="name" placeholder="Name goes here" value={name} onChange = {(e)=>setName(e.target.value)}/>
-                {errors.name ? <p>{errors.name.message}</p> : null}
-            </p>
-            <p>
-                <label>Description</label><br/>
-                <input type="text" name="description" placeholder="Description goes here" value={description}  onChange = {(e)=>setDescription(e.target.value)}/>
-                {errors.description ? <p>{errors.description.message}</p> : null}
-            </p>
-            <p>
-                <label>Instructions</label><br/>
-                <input type="text"  name="instructions" placeholder="Instructions go here" value={instructions}  onChange = {(e)=>setInstructions(e.target.value)}/>
-                {errors.instructions ? <p>{errors.instructions.message}</p> : null}
-            </p>
-            <p>
-                <label>Cook Time</label><br/>
-                <input type="number" name="cookTime" placeholder="Cook time goes here" value={cookTime} onChange = {(e)=>setCookTime(e.target.value)}/>
-                {errors.cookTime ? <p>{errors.cookTime.message}</p> : null}
-            </p> */}
-            {/* <input className="btn btn-primary btn-lg mx-3 px-5 py-3 mt-2" type="submit"/>
-            <Link to={`/dashboard`}><button className="btn btn-danger btn-lg mx-3 px-5 py-3 mt-2">Cancel</button></Link> */}
-        </form>
-        
+    </div>    
     )
 }
 export default LandingPage;

@@ -9,6 +9,7 @@ import LandingPage from './components/landingPage';
 import Register from './components/Register';
 import Login from './components/Login';
 
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -24,6 +25,7 @@ function App() {
                   <Route element={<HouseForm/>} path="/houses/new" /> 
                   <Route element={<ViewOneHouse/>} path="/house/:id"/>
                   <Route element={<EditForm/>} path="/house/:id/edit"/>
+                  
                 </Routes>
           </BrowserRouter>
       </div>

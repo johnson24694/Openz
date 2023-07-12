@@ -9,7 +9,6 @@ module.exports.authenticate = (req, res, next) => {
       res.status(401).json({verified: false});
     } else {
       console.log("authenticated!")
-      req.jwtpayload = payload
       next();
     }
   });
