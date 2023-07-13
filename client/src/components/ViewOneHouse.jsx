@@ -25,9 +25,7 @@ const ViewOneHouse = (props) => {
                     setHouseList(filteredHousesList);
                     navigate('/dashboard')
                 })
-            
     }
-
 
     return (
         <div className="mt-5 px-3 py-4">
@@ -36,6 +34,7 @@ const ViewOneHouse = (props) => {
             <p>Location:  {houseList.location}</p>
             <p>Date Open:  {houseList.dateOpen}</p>
             <p>Time Open:  {houseList.timeOpen}</p>
+            <p>Favorite:  {houseList.favorite ? (<p>Yes</p>) : <p>No</p>}</p>
             <p>Notes:  {houseList.notes}</p>
             <Link to={`/dashboard`}><button className="btn btn-primary btn-lg mx-3 px-5 py-3 mt-2">Back to Houses</button></Link>
             <button className="btn btn-danger btn-lg mx-3 px-5 py-3 mt-2" onClick={() => handleDelete(houseList._id)}> Delete </button>

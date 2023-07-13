@@ -8,6 +8,7 @@ const HouseForm= (props) => {
     const [location, setLocation] = useState(""); 
     const [dateOpen, setDateOpen] = useState("");
     const [timeOpen, setTimeOpen] = useState("");
+    const [favorite, setFavorite] = useState(false);
     const [notes, setNotes] = useState("");
     const [errors, setErrors] = useState({});
     const navigate = useNavigate()
@@ -19,6 +20,7 @@ const HouseForm= (props) => {
             location,
             dateOpen,
             timeOpen,
+            favorite,
             notes
         })
             .then(res=>{
@@ -26,8 +28,8 @@ const HouseForm= (props) => {
                 navigate('/dashboard')
             })
             .catch((err)=> {
-            console.log(err.response.data.err.errors)
-            setErrors(err.response.data.err.errors)
+            console.log(err.response.data.err.error)
+            setErrors(err.response.data.err.error)
         });
     }
     
@@ -53,6 +55,11 @@ const HouseForm= (props) => {
                 <label>Time Open</label><br/>
                 <input type="time" name="timeOpen" placeholder="Time goes here" value={timeOpen} onChange = {(e)=>setTimeOpen(e.target.value)}/>
                 {errors.timeOpen ? <p>{errors.timeOpen.message}</p> : null}
+            </p>
+            <p>
+                <label>Favorite</label><br/>
+                <input type="checkbox" name="favorite" placeholder="Time goes here" checked={favorite} onChange = {(e)=>setFavorite(e.target.checked)}/>
+                {errors.favorite ? <p>{errors.favorite.message}</p> : null}
             </p>
             <p>
                 <label>Notes</label><br/>

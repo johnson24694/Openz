@@ -1,5 +1,5 @@
 const HouseController = require('../controllers/house.controller');
-const {authenticate} = require('../config/jwt.config');
+// const {authenticate} = require('../config/jwt.config');
 
 module.exports = (app) => {
     app.post('/api/houses',  HouseController.createHouse);

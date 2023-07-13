@@ -22,10 +22,10 @@ const LandingPage= (props) => {
                     
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={500}>
+                <Carousel.Item interval={800}>
                     <img
                     className="d-block w-100"
-                    src="https://images.pexels.com/photos/226407/pexels-photo-226407.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                    src="https://images.pexels.com/photos/2326926/pexels-photo-2326926.jpeg?auto=compress&cs=tinysrgb&w=1200"
                     alt="Second slide"
                     />
                     <Carousel.Caption>

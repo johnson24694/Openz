@@ -8,6 +8,7 @@ const EditForm= (props) => {
     const [location, setLocation] = useState(""); 
     const [dateOpen, setDateOpen] = useState("");
     const [timeOpen, setTimeOpen] = useState("");
+    const [favorite, setFavorite] = useState("");
     const [notes, setNotes] = useState("");
     const {id} = useParams();
     const [errors, setErrors] = useState({});
@@ -20,16 +21,11 @@ const EditForm= (props) => {
                 setLocation(res.data.location);
                 setDateOpen(res.data.dateOpen);
                 setTimeOpen(res.data.timeOpen);
+                setFavorite(res.data.favorite);
                 setNotes(res.data.notes);
-                      
             })
-                 
             .catch(err => console.log(err))
-                  
-            
     }, [])
-
-    
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
@@ -38,6 +34,7 @@ const EditForm= (props) => {
             location,
             dateOpen,
             timeOpen,
+            favorite,
             notes
         })
             .then((res)=>{
@@ -74,13 +71,17 @@ const EditForm= (props) => {
                 {errors.timeOpen ? <p>{errors.timeOpen.message}</p> : null}
             </p>
             <p>
+                <label>Favorite</label><br/>
+                <input type="checkbox" name="favorite" placeholder="Time goes here" checked={favorite} onChange = {(e)=>setFavorite(e.target.checked)}/>
+                {errors.favorite ? <p>{errors.favorite.message}</p> : null}
+            </p>
+            <p>
                 <label>Notes</label><br/>
                 <input type="textarea" name="notes" placeholder="Notes go here" value={notes} onChange = {(e)=>setNotes(e.target.value)}/>
                 {errors.notes ? <p>{errors.notes.message}</p> : null}
             </p>
             <input className="btn btn-primary btn-lg mx-3 px-5 py-3 mt-2" type="submit"/>
             <Link to={`/dashboard`}><button className="btn btn-danger btn-lg mx-3 px-5 py-3 mt-2">Cancel</button></Link>
-                      
         </form>
     )
 }

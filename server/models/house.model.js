@@ -17,6 +17,9 @@ const HouseSchema = new mongoose.Schema({
         required: [true, "You must enter a time."],
         minlength: [2, "Time must be at least 2 numbers."]
     },  
+    favorite: { type: Boolean,
+    },  
+
     notes: { type: String,
         
     },  
