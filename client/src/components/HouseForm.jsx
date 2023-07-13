@@ -28,8 +28,8 @@ const HouseForm= (props) => {
                 navigate('/dashboard')
             })
             .catch((err)=> {
-            console.log(err.response.data.err.error)
-            setErrors(err.response.data.err.error)
+            console.log(err.response.data.err.errors)
+            setErrors(err.response.data.err.errors)
         });
     }
     
@@ -58,7 +58,7 @@ const HouseForm= (props) => {
             </p>
             <p>
                 <label>Favorite</label><br/>
-                <input type="checkbox" name="favorite" placeholder="Time goes here" checked={favorite} onChange = {(e)=>setFavorite(e.target.checked)}/>
+                <input type="checkbox" name="favorite" placeholder="Check for favorite" checked={favorite} onChange = {(e)=>setFavorite(e.target.checked)}/>
                 {errors.favorite ? <p>{errors.favorite.message}</p> : null}
             </p>
             <p>

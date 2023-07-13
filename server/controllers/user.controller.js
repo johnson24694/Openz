@@ -8,7 +8,7 @@ module.exports = {
         try{
             const potentialUser = await User.findOne({email:req.body.email})
             if(potentialUser){
-                res.status(400).json({message: "That email already exists, please login."})
+                res.status(400).json({errors: {email: {message: "That email already exists, please login."}}})
             } else{
                 const newUser = await User.create(req.body);
                 const userToken = jwt.sign({_id: newUser._id, email:newUser.email}, secret, {expiresIn:'2h'})
@@ -32,12 +32,12 @@ module.exports = {
                     res.status(201).cookie('userToken', userToken, {httpOnly:true, maxAge: 2 * 60 * 60 * 1000}).json(user);
                 }            
                 else{
-                    res.status(400).json({message: "Invalid email/password"})
+                    res.status(400).json( {errors: {password: {message: "Invalid email/password"}}});
                 }
             }
 
         else {
-            res.status(400).json({message: "Invalid email/password"})
+            res.status(400).json( {errors: {password: {message: "Invalid email/password"}}})
             }
         }
 

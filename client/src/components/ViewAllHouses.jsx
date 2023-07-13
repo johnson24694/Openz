@@ -1,16 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import { useNavigate, useParams, Link } from "react-router-dom";
+import { GoogleMap, DirectionsRenderer } from 'react-google-maps';
+
 
 const ViewAllHouses = (props) => {
     const [houseList, setHouseList] = useState([]);
+    const [directions, setDirections] = useState(null);
+    const [map, setMap] = useState(null);
+    const [marker, setMarker] = useState(null);
     const navigate = useNavigate();
     const {id} = useParams();
+
+    const initMap = () => {
+        const mapOptions = {
+        center: { lat: 41.256538, lng: -95.934502 },
+        zoom: 12,
+        };
+        const map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        const marker = new google.maps.Marker({
+        position: { lat: 41.256538, lng:-95.934502 },
+        map: map,
+        });
+        setMap(map);
+        setMarker(marker);
+    };
     
     useEffect( () => {
         axios.get('http://localhost:8000/api/houses',{withCredentials: true})
         .then(res => {
             console.log(res);
+            initMap();
             setHouseList(res.data)
         })},[]
     )
@@ -39,11 +59,11 @@ const ViewAllHouses = (props) => {
     return (
         <div className="mt-5 px-4 py-4">
             <h1 className="h1 display-2">Welcome to Openz!</h1>
-            <table className = "table table-striped table-hover border mt-5 px-4 py-4">
+            <table className = "table table-striped table-hover border mt-5 px-4 py-4 ">
                 <thead>
                     <h4>My Open Houses:</h4>
                     <i className="fa-solid fa-user"></i>
-                    <tr className="h1 display-6">
+                    <tr className="h1 display-6 ">
                         <th>Name|  </th>
                         <th>Location|  </th>
                         <th>Date Open|  </th>
@@ -91,6 +111,7 @@ const ViewAllHouses = (props) => {
             </table>
             <Link to={`/houses/new`}><button className="btn btn-primary btn-lg mx-3 px-5 py-3 mt-2">Add an Open House</button></Link>
             <button  className="btn btn-primary btn-lg mx-3 px-5 py-3 mt-2" onClick={logout}>Logout</button>
+            <div  className="mt-5" id="map" style={{ height: '400px' }}></div>
         </div>
     )
 }
