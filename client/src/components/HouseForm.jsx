@@ -32,10 +32,38 @@ const HouseForm= (props) => {
             setErrors(err.response.data.err.errors)
         });
     }
+
+    const logout = () => {
+        axios.post('http://localhost:8000/api/logout', {}, {withCredentials:true})
+            .then(res => {
+                navigate('/')
+                console.log('User is logged out')
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
     
     return (
-        <form className="mt-5 px-3 py-4" onSubmit={onSubmitHandler}>
-            <h2 className="h1 display-1">Add an Open House!</h2>
+    <div>
+            <div>
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#"> <img src = "https://cdn-icons-png.flaticon.com/128/846/846449.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"></img>       Openz</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                            <Link to={`/dashboard`} class="nav-link active" aria-current="page">View All Houses</Link>
+                            <a href="#" onClick={logout} class="nav-link" aria-current="page">Log Out</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        <form className="" onSubmit={onSubmitHandler}>
+            <h2 className="h6 display-6">Add an Open House</h2>
             <p>
                 <label>Name</label><br/>
                 <input type="text" name="name" placeholder="Name goes here" value={name} onChange = {(e)=>setName(e.target.value)}/>
@@ -66,10 +94,9 @@ const HouseForm= (props) => {
                 <input type="textarea" name="notes" placeholder="Notes go here" value={notes} onChange = {(e)=>setNotes(e.target.value)}/>
                 {errors.notes ? <p>{errors.notes.message}</p> : null}
             </p>
-            <input className="btn btn-primary btn-lg mx-3 px-5 py-3 mt-2" type="submit"/>
-            <Link to={`/dashboard`}><button className="btn btn-danger btn-lg mx-3 px-5 py-3 mt-2">Cancel</button></Link>
+            <input className="btn btn-primary btn-md mx-3 px-4 py-2 mt-1" type="submit"/>
         </form>
-        
+    </div>
     )
 }
 export default HouseForm;
