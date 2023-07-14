@@ -1,0 +1,17 @@
+@for $i from 1 through 100 {
+    .h-#{$i} {
+        height: #{$i}#{"%"};
+    }
+
+    .vh-#{$i} {
+        height: #{$i}#{"vh"};
+    }
+
+    .w-#{$i} {
+        width: #{$i}#{"%"};
+    }
+
+    .vw-#{$i} {
+        width: #{$i}#{"vh"};
+    }
+}
