@@ -49,7 +49,7 @@ const HouseForm= (props) => {
             <div>
                 <nav class="navbar navbar-expand-lg bg-body-tertiary">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="#"> <img src = "https://cdn-icons-png.flaticon.com/128/846/846449.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"></img>       Openz</a>
+                        <a class="navbar-brand text-openz1" href="#"> <img src = "https://cdn-icons-png.flaticon.com/128/846/846449.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"></img>       Openz</a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                         </button>
@@ -62,26 +62,28 @@ const HouseForm= (props) => {
                     </div>
                 </nav>
             </div>
-        <form className="" onSubmit={onSubmitHandler}>
-            <h2 className="h6 display-6">Add an Open House</h2>
+        <div className='container-size'>
+        <form className="form-sizing" onSubmit={onSubmitHandler}>
+            <h2 className="h6 display-6 text-openz3">Add an Open House</h2>
+            <div className='mb-3'>
             <p>
                 <label>Name</label><br/>
-                <input type="text" name="name" placeholder="Name goes here" value={name} onChange = {(e)=>setName(e.target.value)}/>
+                <input className="form-control form-control-md" type="text" name="name" placeholder="Name goes here" value={name} onChange = {(e)=>setName(e.target.value)}/>
                 {errors.name ? <p>{errors.name.message}</p> : null}
             </p>
             <p>
                 <label>Location</label><br/>
-                <input type="text" name="location" placeholder="Location goes here" value={location}  onChange = {(e)=>setLocation(e.target.value)}/>
+                <input className="form-control form-control-md " type="text" name="location" placeholder="Location goes here" value={location}  onChange = {(e)=>setLocation(e.target.value)}/>
                 {errors.location ? <p>{errors.location.message}</p> : null}
             </p>
             <p>
                 <label>Date Open</label><br/>
-                <input type="date"  name="dateOpen" placeholder="Date open goes here" value={dateOpen}  onChange = {(e)=>setDateOpen(e.target.value)}/>
+                <input className="form-control form-control-md " type="date"  name="dateOpen" placeholder="Date open goes here" value={dateOpen}  onChange = {(e)=>setDateOpen(e.target.value)}/>
                 {errors.dateOpen ? <p>{errors.dateOpen.message}</p> : null}
             </p>
             <p>
                 <label>Time Open</label><br/>
-                <input type="time" name="timeOpen" placeholder="Time goes here" value={timeOpen} onChange = {(e)=>setTimeOpen(e.target.value)}/>
+                <input className="form-control form-control-md " type="time" name="timeOpen" placeholder="Time goes here" value={timeOpen} onChange = {(e)=>setTimeOpen(e.target.value)}/>
                 {errors.timeOpen ? <p>{errors.timeOpen.message}</p> : null}
             </p>
             <p>
@@ -91,11 +93,13 @@ const HouseForm= (props) => {
             </p>
             <p>
                 <label>Notes</label><br/>
-                <input type="textarea" name="notes" placeholder="Notes go here" value={notes} onChange = {(e)=>setNotes(e.target.value)}/>
+                <input className="form-control form-control-md " type="textarea" name="notes" placeholder="Notes go here" value={notes} onChange = {(e)=>setNotes(e.target.value)}/>
                 {errors.notes ? <p>{errors.notes.message}</p> : null}
             </p>
-            <input className="btn btn-primary btn-md mx-3 px-4 py-2 mt-1" type="submit"/>
+            </div>
+            <input className="btn bg-openz2 btn-md mx-3 px-4 py-2 mt-1" type="submit"/>
         </form>
+        </div>
     </div>
     )
 }

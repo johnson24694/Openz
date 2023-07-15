@@ -5,7 +5,7 @@ import ViewAllHouses from './components/ViewAllHouses';
 import ViewOneHouse from './components/ViewOneHouse';
 import HouseForm from './components/HouseForm'
 import EditForm from './components/EditForm';
-import LandingPage from './components/landingPage';
+import LandingPage from './components/LandingPage';
 import Register from './components/Register';
 import Login from './components/Login';
 

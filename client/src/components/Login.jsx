@@ -35,7 +35,7 @@ return (
             <div>
                 <nav class="navbar navbar-expand-lg bg-body-tertiary">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="#"> <img src = "https://cdn-icons-png.flaticon.com/128/846/846449.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"></img>       Openz</a>
+                        <a class="navbar-brand text-openz1" href="#"> <img src = "https://cdn-icons-png.flaticon.com/128/846/846449.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"></img>       Openz</a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                         </button>
@@ -48,7 +48,7 @@ return (
                     </div>
                 </nav>
             </div>
-        <h2 className="h6 display-6">Login</h2>
+        <h2 className="h6 display-6 text-openz3">Login</h2>
         <form className= 'col-6 mx-auto' onSubmit={loginHandler}>
             <div>
                 <label className='form-label'>Email:</label>
@@ -61,7 +61,7 @@ return (
                 {errors.password && <p>{errors.password.message}</p>}
             </div>
             <br/>
-            <button className='btn btn-primary btn-md mx-3 px-4 py-2 mt-1'>Login</button>       
+            <button className='btn bg-openz2 btn-md mx-3 px-4 py-2 mt-1'>Login</button>       
         </form>
         <br/>
     </div>

@@ -5,6 +5,7 @@ import { format } from 'date-fns';
 import { GoogleMap, DirectionsRenderer } from 'react-google-maps';
 
 
+
 const ViewAllHouses = (props) => {
 
     const [houseList, setHouseList] = useState([]);
@@ -72,7 +73,7 @@ const ViewAllHouses = (props) => {
             <div>
                 <nav class="navbar navbar-expand-lg bg-body-tertiary">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="#"> <img src = "https://cdn-icons-png.flaticon.com/128/846/846449.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"></img>       Openz</a>
+                        <a class="navbar-brand text-openz1" href="#"> <img src = "https://cdn-icons-png.flaticon.com/128/846/846449.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"></img>       Openz</a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                         </button>
@@ -85,7 +86,7 @@ const ViewAllHouses = (props) => {
                     </div>
                 </nav>
             </div>
-            <h1 className="h6 display-6">My Open Houses</h1>
+            <h1 className="h6 display-6 text-openz3">My Open Houses</h1>
             <table className = "table table-striped table-hover border mt-3 px-4 py-4 ">
                 <thead>
                     <tr>
@@ -103,7 +104,7 @@ const ViewAllHouses = (props) => {
                     return (
                         <tr className="table-light" key={index}>
                             <td>{houseList.name}</td> 
-                            <td><Link>{houseList.location}</Link></td>
+                            <td><Link className='text-openz2'>{houseList.location}</Link></td>
                             <td>{format(new Date(houseList.dateOpen), 'MM/dd/yyyy')}</td>
                             <td>{formatTimeToCivilian(houseList.timeOpen)}</td>
                             <td>
@@ -125,9 +126,9 @@ const ViewAllHouses = (props) => {
                             </td>
                             <td className='fst-italic'>{houseList.notes}</td>
                             
-                            <td><Link to={`/house/${houseList._id}`}> View </Link></td>
-                            <td><Link to={`/house/${houseList._id}/edit`}> Edit </Link></td>
-                            <td><button className="btn btn-danger" onClick={() => handleDelete(houseList._id)}> Delete </button></td>
+                            <td><Link className="text-openz1" to={`/house/${houseList._id}`}> View </Link></td>
+                            <td><Link className="text-openz1" to={`/house/${houseList._id}/edit`}> Edit </Link></td>
+                            <td><button className="btn bg-openz5" onClick={() => handleDelete(houseList._id)}> Delete </button></td>
                         </tr>
                         )})
                     }

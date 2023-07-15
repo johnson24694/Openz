@@ -84,7 +84,7 @@ const ViewOneHouse = (props) => {
             <div>
                 <nav class="navbar navbar-expand-lg bg-body-tertiary">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="#"> <img src = "https://cdn-icons-png.flaticon.com/128/846/846449.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"></img>       Openz</a>
+                        <a class="navbar-brand text-openz1" href="#"> <img src = "https://cdn-icons-png.flaticon.com/128/846/846449.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"></img>       Openz</a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                         </button>
@@ -97,13 +97,13 @@ const ViewOneHouse = (props) => {
                     </div>
                 </nav>
             </div>
-            <h2 className="h6 display-6">Details</h2>
+            <h2 className="h6 display-6 text-openz3">Details</h2>
             <p className='fw-semibold mt-3'>{houseList.name}</p>
-            <div>Located at <Link>{houseList.location}</Link></div>
+            <div>Located at <Link className='text-openz2'>{houseList.location}</Link></div>
             <div>Open House on {formatDate(houseList.dateOpen)} <span>at {formatTime(houseList.timeOpen)}</span></div>
             <div><span>Is this a Favorite? {houseList.favorite ? <span>Yes</span> : <span>No</span>}</span></div>
             <p><span className='fw-semibold'>My Notes:  </span><span className='fst-italic'>{houseList.notes}</span></p>
-            <button className="btn btn-danger btn-md mx-3 px-4 py-2 mt-1" onClick={() => handleDelete(houseList._id)}> Delete </button>
+            <button className="btn bg-openz5 btn-md mx-3 px-4 py-2 mt-1" onClick={() => handleDelete(houseList._id)}> Delete </button>
             <div  className="mt-3" id="map" style={{ height: '400px' }}></div>
         </div>
     );

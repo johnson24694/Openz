@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useNavigate, Link } from "react-router-dom";
 import { Carousel } from 'react-bootstrap';
 
+
+
 const LandingPage= (props) => {
     const navigate = useNavigate()
     
@@ -11,7 +13,7 @@ const LandingPage= (props) => {
             <div>
                 <nav class="navbar navbar-expand-xlg bg-body-tertiary">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="#"> <img src = "https://cdn-icons-png.flaticon.com/128/846/846449.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"></img>       Openz</a>
+                        <a class="navbar-brand text-openz1" href="#"> <img src = "https://cdn-icons-png.flaticon.com/128/846/846449.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"></img>       Openz</a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                         </button>

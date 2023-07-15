@@ -7,7 +7,7 @@ const EditForm= (props) => {
     
     const [name, setName] = useState("");
     const [location, setLocation] = useState(""); 
-    const [dateOpen, setDateOpen] = useState("");
+    const [dateOpen, setDateOpen] = useState(null);
     const [timeOpen, setTimeOpen] = useState("");
     const [favorite, setFavorite] = useState("");
     const [notes, setNotes] = useState("");
@@ -64,7 +64,7 @@ const EditForm= (props) => {
             <div>
                 <nav class="navbar navbar-expand-lg bg-body-tertiary">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="#"> <img src = "https://cdn-icons-png.flaticon.com/128/846/846449.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"></img>       Openz</a>
+                        <a class="navbar-brand text-openz1" href="#"> <img src = "https://cdn-icons-png.flaticon.com/128/846/846449.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"></img>       Openz</a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                         </button>
@@ -79,7 +79,7 @@ const EditForm= (props) => {
             </div>
             <div className='container-size'>
                 <form className="form-sizing" onSubmit={onSubmitHandler}>
-                    <h2 className="h6 display-6">Edit {name}</h2>
+                    <h2 className="h6 display-6 text-openz3">Edit {name}</h2>
                     <div className='mb-3'>
                     <p>
                         <label>Name</label><br/>
@@ -93,7 +93,7 @@ const EditForm= (props) => {
                     </p>
                     <p>
                         <label>Date Open</label><br/>
-                        <input  className="form-control form-control-md" type="date" name="dateOpen" placeholder="Date goes here" value={dateOpen}  onChange = {(e)=>setDateOpen(e.target.value)}/>
+                        <input  className="form-control form-control-md" type="date" name="dateOpen" placeholder="Date goes here" value={dateOpen ? format(new Date(dateOpen), 'yyyy-MM-dd') : ''} onChange = {(e)=>setDateOpen(e.target.value)}/>
                         {errors.dateOpen ? <p>{errors.dateOpen.message}</p> : null}
                     </p>
                     <p>
@@ -112,7 +112,7 @@ const EditForm= (props) => {
                         {errors.notes ? <p>{errors.notes.message}</p> : null}
                     </p>
                     </div>
-                    <input className="btn btn-primary btn-md mx-3 px-4 py-2 mt-1" type="submit"/>
+                    <input className="btn bg-openz2 btn-md mx-3 px-4 py-2 mt-1" type="submit"/>
                 </form>
             </div>
         </div>
