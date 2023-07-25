@@ -43,6 +43,7 @@ const EditForm= (props) => {
                 navigate("/dashboard")
             })
             .catch((err)=> {
+                console.log(err);
                 console.log(err.response.data.errors)
                 setErrors(err.response.data.errors)
             });
@@ -56,7 +57,7 @@ const EditForm= (props) => {
             })
             .catch(err => {
                 console.log(err);
-            })
+            });
     }
     
     return (
